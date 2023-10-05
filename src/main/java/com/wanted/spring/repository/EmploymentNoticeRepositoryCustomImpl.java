@@ -4,8 +4,7 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.wanted.spring.domain.QEmploymentNotice;
-import com.wanted.spring.dto.EmploymentNoticeNoDetailResponseDto;
-import com.wanted.spring.dto.EmploymentNoticeYesDetailResponseDto;
+import com.wanted.spring.dto.employment_notice.EmploymentNoticeNoDetailResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

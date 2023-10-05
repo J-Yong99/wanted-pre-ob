@@ -1,4 +1,4 @@
-package com.wanted.spring.dto;
+package com.wanted.spring.dto.employment_notice;
 
 import lombok.*;
 
