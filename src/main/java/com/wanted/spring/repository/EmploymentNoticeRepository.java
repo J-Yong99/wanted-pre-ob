@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface EmploymentNoticeRepository extends JpaRepository<EmploymentNotice, Long> {
+public interface EmploymentNoticeRepository extends JpaRepository<EmploymentNotice, Long>, EmploymentNoticeRepositoryCustom {
     @Override
     <S extends EmploymentNotice> S save(S entity);
 
