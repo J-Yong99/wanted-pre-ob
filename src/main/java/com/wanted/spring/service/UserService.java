@@ -22,7 +22,7 @@ public class UserService {
             User user = User.builder()
                     .age(body.getAge())
                     .name(body.getName())
-                    .is_applied(false)
+                    .isApplied(false)
                     .build();
             return userRepository.save(user);
         } catch (Exception e) {

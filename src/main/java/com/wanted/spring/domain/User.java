@@ -23,5 +23,5 @@ public class User {
     private Integer age;
 
     @Column(name = "is_applied")
-    private boolean is_applied;
+    private boolean isApplied;
 }
