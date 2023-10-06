@@ -16,6 +16,7 @@ public class EmploymentNoticeRepositoryCustomImpl implements EmploymentNoticeRep
     private final JPAQueryFactory jpaQueryFactory;
 
     // companyid로 해당하는 company의 모든 채용공고 id 받아오기
+    @Override
     public List<Long> getAllIdByCompanyId(Long id){
         QEmploymentNotice qEmploymentNotice = QEmploymentNotice.employmentNotice;
 
@@ -28,6 +29,7 @@ public class EmploymentNoticeRepositoryCustomImpl implements EmploymentNoticeRep
     }
 
     // 검색어를 이용해서 해당 검색어가 포함되는 속성을 갖는 채용공고 찾아오기 (자세한 내용 미 포함)
+    @Override
     public List<EmploymentNoticeNoDetailResponseDto> searchNoticeByWordNoDetail(String word){
         QEmploymentNotice qEmploymentNotice = QEmploymentNotice.employmentNotice;
 
@@ -51,6 +53,25 @@ public class EmploymentNoticeRepositoryCustomImpl implements EmploymentNoticeRep
                 )
                 .orderBy(qEmploymentNotice.id.asc())
                 ;
+        return query.fetch();
+    }
+
+    @Override
+    public List<EmploymentNoticeNoDetailResponseDto> findAllEmploymentNotice(){
+        QEmploymentNotice qEmploymentNotice = QEmploymentNotice.employmentNotice;
+
+        JPAQuery<EmploymentNoticeNoDetailResponseDto> query = jpaQueryFactory.select(Projections.constructor(
+                EmploymentNoticeNoDetailResponseDto.class,
+                        qEmploymentNotice.id.as("id"),
+                        qEmploymentNotice.company.name.as("companyName"),
+                        qEmploymentNotice.position,
+                        qEmploymentNotice.compensation,
+                        qEmploymentNotice.tools,
+                        qEmploymentNotice.region
+                ))
+                .from(qEmploymentNotice)
+                ;
+
         return query.fetch();
     }
 }
