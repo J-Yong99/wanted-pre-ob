@@ -5,6 +5,7 @@ import com.wanted.spring.dto.employment_notice.EmploymentNoticeNoDetailResponseD
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeRegisterRequestDto;
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeYesDetailResponseDto;
 import com.wanted.spring.service.EmploymentNoticeService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ public class EmploymentNoticeController {
 
     // 등록
     @PostMapping
+    @Operation(summary = "등록", description = "회사가 채용공고를 등록합니다.")
     public ResponseEntity<EmploymentNotice> registerEmploymentNotice(
             @RequestBody EmploymentNoticeRegisterRequestDto body
     ) {
@@ -33,6 +35,7 @@ public class EmploymentNoticeController {
 
     // 수정
     @PutMapping("/{id}")
+    @Operation(summary = "수정", description = "회사가 채용공고를 수정합니다.")
     public ResponseEntity<EmploymentNotice> updateEmploymentNotice(
             @PathVariable Long id,
             @RequestBody EmploymentNoticeRegisterRequestDto body
@@ -42,6 +45,7 @@ public class EmploymentNoticeController {
 
     // 삭제
     @DeleteMapping("/{id}")
+    @Operation(summary = "삭제", description = "회사가 채용공고를 삭제합니다.")
     public ResponseEntity<String> deleteEmploymentNotice(
             @PathVariable Long id
     ) {
@@ -51,12 +55,14 @@ public class EmploymentNoticeController {
 
     // 전체 조회(description 미포함)
     @GetMapping("all")
+    @Operation(summary = "전체 조회", description = "일반 유저가 채용공고 전체를 조회합니다.")
     public ResponseEntity<List<EmploymentNoticeNoDetailResponseDto>> getAllEmploymentNotice(){
         return ResponseEntity.ok(employmentNoticeService.getAllEmploymentNotice());
     }
 
     // 특정 단어로 쿼리(description 미포함)
     @GetMapping
+    @Operation(summary = "검색", description = "일반 유저가 특정단어를 이용해서 채용공고를 검색합니다.")
     public ResponseEntity<List<EmploymentNoticeNoDetailResponseDto>> getEmploymentNoticeByWord(
             @RequestParam String word
     ){
@@ -65,6 +71,7 @@ public class EmploymentNoticeController {
 
     // id로 특정 공고 조회
     @GetMapping("/{id}")
+    @Operation(summary = "단일 조회", description = "일반 유저가 특정 채용공고를 조회합니다.")
     public ResponseEntity<EmploymentNotice> getSpecificEmploymentNotice(
             @PathVariable Long id
     ){

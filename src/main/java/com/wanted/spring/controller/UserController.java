@@ -5,6 +5,7 @@ import com.wanted.spring.domain.User;
 import com.wanted.spring.dto.company.CompanyRegisterRequestDto;
 import com.wanted.spring.dto.user.UserRegisterRequestDto;
 import com.wanted.spring.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class UserController {
 
     // 등록
     @PostMapping()
+    @Operation(summary = "등록", description = "일반 유저를 등록합니다.")
     public ResponseEntity<User> registerUser(
             @RequestBody UserRegisterRequestDto body
     ){
