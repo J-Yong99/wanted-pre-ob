@@ -6,6 +6,7 @@ import com.wanted.spring.dto.employment_notice.EmploymentNoticeRegisterRequestDt
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeYesDetailResponseDto;
 import com.wanted.spring.service.EmploymentNoticeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class EmploymentNoticeController {
     private final EmploymentNoticeService employmentNoticeService;
 
+    @Autowired
     public EmploymentNoticeController(EmploymentNoticeService employmentNoticeService) {
         this.employmentNoticeService = employmentNoticeService;
     }

@@ -7,6 +7,7 @@ import com.wanted.spring.dto.employment_notice.EmploymentNoticeNoDetailResponseD
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeRegisterRequestDto;
 import com.wanted.spring.repository.CompanyRepository;
 import com.wanted.spring.repository.EmploymentNoticeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class EmploymentNoticeService {
     private final EmploymentNoticeRepository employmentNoticeRepository;
     private final CompanyRepository companyRepository;
 
+    @Autowired
     public EmploymentNoticeService(EmploymentNoticeRepository employmentNoticeRepository, CompanyRepository companyRepository) {
         this.employmentNoticeRepository = employmentNoticeRepository;
         this.companyRepository = companyRepository;
