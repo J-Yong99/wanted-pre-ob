@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<User> registerUser(
             @RequestBody UserRegisterRequestDto body
     ){

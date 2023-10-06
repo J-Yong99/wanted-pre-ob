@@ -22,7 +22,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<Company> registerCompany(
             @RequestBody CompanyRegisterRequestDto body
     ){
