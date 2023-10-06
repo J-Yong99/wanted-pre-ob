@@ -50,7 +50,7 @@ public class EmploymentNoticeController {
     }
 
     // 전체 조회(description 미포함)
-    @GetMapping
+    @GetMapping("all")
     public ResponseEntity<List<EmploymentNoticeNoDetailResponseDto>> getAllEmploymentNotice(){
         return ResponseEntity.ok(employmentNoticeService.getAllEmploymentNotice());
     }
