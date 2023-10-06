@@ -3,11 +3,14 @@ package com.wanted.spring.service;
 import com.wanted.spring.domain.Company;
 import com.wanted.spring.domain.EmploymentNotice;
 import com.wanted.spring.dto.company.CompanyRegisterRequestDto;
+import com.wanted.spring.dto.employment_notice.EmploymentNoticeNoDetailResponseDto;
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeRegisterRequestDto;
 import com.wanted.spring.repository.CompanyRepository;
 import com.wanted.spring.repository.EmploymentNoticeRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmploymentNoticeService {
@@ -53,5 +56,17 @@ public class EmploymentNoticeService {
         employmentNotice.setTools(body.getTools());
         employmentNoticeRepository.save(employmentNotice);
         return employmentNotice;
+    }
+
+    public List<EmploymentNoticeNoDetailResponseDto> getAllEmploymentNotice() {
+        return employmentNoticeRepository.findAllEmploymentNotice();
+    }
+
+    public List<EmploymentNoticeNoDetailResponseDto> getEmploymentNoticeByWord(String word) {
+        return employmentNoticeRepository.searchNoticeByWordNoDetail(word);
+    }
+
+    public EmploymentNotice getEmploymentNoticeById(Long id) {
+        return employmentNoticeRepository.findById(id).orElseThrow(() -> new RuntimeException("can not find employment notice"));
     }
 }
