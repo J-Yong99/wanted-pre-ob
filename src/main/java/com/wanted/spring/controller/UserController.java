@@ -24,6 +24,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // 등록
     @PostMapping()
     public ResponseEntity<User> registerUser(
             @RequestBody UserRegisterRequestDto body

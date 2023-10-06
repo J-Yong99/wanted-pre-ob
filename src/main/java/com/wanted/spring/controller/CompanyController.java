@@ -22,6 +22,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
+    // 등록
     @PostMapping()
     public ResponseEntity<Company> registerCompany(
             @RequestBody CompanyRegisterRequestDto body

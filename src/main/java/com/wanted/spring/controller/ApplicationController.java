@@ -22,6 +22,7 @@ public class ApplicationController {
     }
 
 
+    // 등록
     @PostMapping
     public ResponseEntity<Application> registerApplication(
             @RequestBody ApplicationRegisterRequestDto body
