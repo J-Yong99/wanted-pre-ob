@@ -16,6 +16,4 @@ public interface EmploymentNoticeRepository extends JpaRepository<EmploymentNoti
     @Override
     void deleteById(Long aLong);
 
-    // company_id로 list<id>가져오기
-    // %검색어%로 해당하는 list<EN>가져오기
 }
