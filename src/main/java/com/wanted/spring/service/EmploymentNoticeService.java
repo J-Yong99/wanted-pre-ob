@@ -5,6 +5,7 @@ import com.wanted.spring.domain.EmploymentNotice;
 import com.wanted.spring.dto.company.CompanyRegisterRequestDto;
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeNoDetailResponseDto;
 import com.wanted.spring.dto.employment_notice.EmploymentNoticeRegisterRequestDto;
+import com.wanted.spring.dto.employment_notice.EmploymentNoticeYesDetailResponseDto;
 import com.wanted.spring.repository.CompanyRepository;
 import com.wanted.spring.repository.EmploymentNoticeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,12 @@ public class EmploymentNoticeService {
         return employmentNoticeRepository.searchNoticeByWordNoDetail(word);
     }
 
-    public EmploymentNotice getEmploymentNoticeById(Long id) {
-        return employmentNoticeRepository.findById(id).orElseThrow(() -> new RuntimeException("can not find employment notice"));
+    public EmploymentNoticeYesDetailResponseDto getEmploymentNoticeById(Long id) {
+        EmploymentNotice employmentNotice = employmentNoticeRepository.findById(id).orElseThrow(() -> new RuntimeException("can not find employment notice"));
+        EmploymentNoticeYesDetailResponseDto result = EmploymentNoticeYesDetailResponseDto.fromEntity(employmentNotice);
+        List<Long> sameCompanyNotices = employmentNoticeRepository.getAllIdByCompanyId(employmentNotice.getCompany().getId());
+        sameCompanyNotices.removeIf(item -> item.equals(id));
+        result.setSameCompanyNotices(sameCompanyNotices);
+        return result;
     }
 }

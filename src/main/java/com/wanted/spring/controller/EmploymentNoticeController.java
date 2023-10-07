@@ -72,7 +72,7 @@ public class EmploymentNoticeController {
     // id로 특정 공고 조회
     @GetMapping("/{id}")
     @Operation(summary = "단일 조회", description = "일반 유저가 특정 채용공고를 조회합니다.")
-    public ResponseEntity<EmploymentNotice> getSpecificEmploymentNotice(
+    public ResponseEntity<EmploymentNoticeYesDetailResponseDto> getSpecificEmploymentNotice(
             @PathVariable Long id
     ){
         return ResponseEntity.ok(employmentNoticeService.getEmploymentNoticeById(id));
