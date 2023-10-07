@@ -2,7 +2,7 @@
 
 ## ERD
 
-![Untitled](../../../../Downloads/f61e57e4-5f75-462b-8040-c5d43707416a_Export-d781c914-4313-44e7-92e5-17f24c5bf0c4%202/wanted%20pob%20spring%20server%2003c429f17b7d4f14a91d208272f70c28/Untitled.png)
+<img width="1141" alt="erd" src="https://github.com/J-Yong99/wanted-pre-onboarding-backend/assets/77261304/05ba286b-7ade-4a0d-8e73-0c8e77f8e62e">
 
 ## 요구사항
 
